@@ -13,7 +13,7 @@ import med.voll.api.model.address.AddressData;
 public class Address {
     private String street;
     private String neighborhood;
-    private String zipCode;
+    private String zipcode;
     private String city;
     private String uf;
     private String number;
@@ -22,7 +22,7 @@ public class Address {
     public Address(AddressData address) {
         this.street = address.street();
         this.neighborhood = address.neighborhood();
-        this.zipCode = address.zipCode();
+        this.zipcode = address.zipcode();
         this.city = address.city();
         this.uf = address.uf();
         this.number = address.number();
