@@ -1,6 +1,6 @@
 package med.voll.api.model.address;
 
-public record Address(
+public record AddressData(
         String street,
         String neighborhood,
         String zipCode,
