@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import med.voll.api.model.address.entity.Address;
+import med.voll.api.model.doctor.DoctorData;
 import med.voll.api.model.doctor.Specialty;
 
 @Table(name = "doctors")
@@ -29,4 +30,11 @@ public class Doctor {
     @Embedded // we use embedded to add a class address in database without needing to create an address class.
     private Address address;
 
+    public Doctor(DoctorData data) {
+        this.name = data.name();
+        this.email = data.email();
+        this.crm = data.crm();
+        this.specialty = data.specialty();
+        this.address = new Address(data.address());
+    }
 }
