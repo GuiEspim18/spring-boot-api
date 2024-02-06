@@ -7,10 +7,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import med.voll.api.model.address.entity.Address;
 import med.voll.api.model.doctor.DoctorData;
+import med.voll.api.model.doctor.DoctorUpdateData;
 import med.voll.api.model.doctor.Specialty;
 
 @Table(name = "doctors")
-@Entity(name="Doctor")
+@Entity(name = "Doctor")
 @Getter // setting the getters methods
 @NoArgsConstructor // creating a constructor without args
 @AllArgsConstructor // creating a constructor with all args
@@ -38,5 +39,17 @@ public class Doctor {
         this.crm = data.crm();
         this.specialty = data.specialty();
         this.address = new Address(data.address());
+    }
+
+    public void updateData(DoctorUpdateData data) {
+        if (data.name() != null) {
+            this.name = data.name();
+        }
+        if (data.telephone() != null) {
+            this.telephone = data.telephone();
+        }
+        if (data.address() != null) {
+            this.address.updateData(data.address());
+        }
     }
 }
