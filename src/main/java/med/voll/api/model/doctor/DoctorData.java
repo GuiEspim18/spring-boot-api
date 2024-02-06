@@ -16,6 +16,9 @@ public record DoctorData(
         String email,
 
         @NotBlank
+        String telephone,
+
+        @NotBlank
         @Pattern(regexp = "\\d{4,6}") // verify if contains digits and if contains if contains 4 or 6 digits
         String crm,
 
