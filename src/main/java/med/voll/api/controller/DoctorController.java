@@ -45,7 +45,6 @@ public class DoctorController {
     public ResponseEntity update (@RequestBody @Valid DoctorUpdateData data) {
         var doctor = repository.getReferenceById(data.id());
         doctor.updateData(data);
-
         return ResponseEntity.ok(new DoctorDetailsData(doctor));
     }
 
@@ -54,7 +53,6 @@ public class DoctorController {
     public ResponseEntity delete(@PathVariable Long id) {
         var doctor = repository.getReferenceById(id);
         doctor.inactive();
-
         return ResponseEntity.noContent().build();
     }
 
