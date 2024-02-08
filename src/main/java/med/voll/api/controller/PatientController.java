@@ -38,7 +38,8 @@ public class PatientController {
 
     @GetMapping("/{id}")
     public ResponseEntity getOne(@PathVariable("id") Long id) {
-        return ResponseEntity.ok(id);
+        var patient = repository.getReferenceById(id);
+        return ResponseEntity.ok(new PatientsDetailsData(patient));
     }
 
 }
