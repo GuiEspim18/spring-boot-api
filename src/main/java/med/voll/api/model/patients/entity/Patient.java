@@ -42,6 +42,6 @@ public class Patient {
         this.sex = patient.sex();
         this.birthdate = patient.birthdate();
         this.active = true;
-
+        this.address = new Address(patient.address());
     }
 }
