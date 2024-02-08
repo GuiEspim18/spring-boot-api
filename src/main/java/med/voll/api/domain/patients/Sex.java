@@ -1,4 +1,4 @@
-package med.voll.api.model.patients;
+package med.voll.api.domain.patients;
 
 public enum Sex {
     MALE,

@@ -1,14 +1,14 @@
-package med.voll.api.model.patients.entity;
+package med.voll.api.domain.patients.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.voll.api.model.address.entity.Address;
-import med.voll.api.model.patients.PatientUpdateData;
-import med.voll.api.model.patients.PatientsData;
-import med.voll.api.model.patients.Sex;
+import med.voll.api.domain.address.entity.Address;
+import med.voll.api.domain.patients.PatientUpdateData;
+import med.voll.api.domain.patients.PatientsData;
+import med.voll.api.domain.patients.Sex;
 
 import java.util.Date;
 

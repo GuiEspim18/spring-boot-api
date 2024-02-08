@@ -1,7 +1,7 @@
-package med.voll.api.model.doctor;
+package med.voll.api.domain.doctor;
 
-import med.voll.api.model.address.entity.Address;
-import med.voll.api.model.doctor.entity.Doctor;
+import med.voll.api.domain.address.entity.Address;
+import med.voll.api.domain.doctor.entity.Doctor;
 
 public record DoctorDetailsData(
         Long id,

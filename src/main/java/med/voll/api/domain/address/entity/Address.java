@@ -1,10 +1,10 @@
-package med.voll.api.model.address.entity;
+package med.voll.api.domain.address.entity;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.voll.api.model.address.AddressData;
+import med.voll.api.domain.address.AddressData;
 
 @Embeddable // setting this class as an object without needing to create an entity form this class
 @Getter // setting the getters methods

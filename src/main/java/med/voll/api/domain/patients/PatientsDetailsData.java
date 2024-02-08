@@ -1,7 +1,7 @@
-package med.voll.api.model.patients;
+package med.voll.api.domain.patients;
 
-import med.voll.api.model.address.entity.Address;
-import med.voll.api.model.patients.entity.Patient;
+import med.voll.api.domain.address.entity.Address;
+import med.voll.api.domain.patients.entity.Patient;
 
 import java.util.Date;
 

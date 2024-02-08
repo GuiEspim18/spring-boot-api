@@ -1,14 +1,14 @@
-package med.voll.api.model.doctor.entity;
+package med.voll.api.domain.doctor.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.voll.api.model.address.entity.Address;
-import med.voll.api.model.doctor.DoctorData;
-import med.voll.api.model.doctor.DoctorUpdateData;
-import med.voll.api.model.doctor.Specialty;
+import med.voll.api.domain.address.entity.Address;
+import med.voll.api.domain.doctor.DoctorData;
+import med.voll.api.domain.doctor.DoctorUpdateData;
+import med.voll.api.domain.doctor.Specialty;
 
 @Table(name = "doctors")
 @Entity(name = "Doctor")
