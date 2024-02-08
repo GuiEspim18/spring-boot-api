@@ -24,10 +24,9 @@ public class PatientController {
     private PatientsRepository repository;
 
     @GetMapping
-    public List<Patient> getAll() {
-        List<Patient> page = repository.findAll();
-        System.out.println(page);
-        return page;
+    public ResponseEntity<Page<ListPatientData>> getAll(@PageableDefault(size = 10, page = 0, sort = { "name" }) Pageable pageable) {
+        Page<ListPatientData> page = repository.findAllByActiveTrue(pageable).map(ListPatientData::new);
+        return ResponseEntity.ok(page);
     }
 
     @PostMapping
