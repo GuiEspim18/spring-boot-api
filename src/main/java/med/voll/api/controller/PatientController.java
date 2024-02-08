@@ -1,9 +1,7 @@
 package med.voll.api.controller;
 
-import med.voll.api.model.patients.ListPatientData;
-import med.voll.api.model.patients.PatientsData;
-import med.voll.api.model.patients.PatientsDetailsData;
-import med.voll.api.model.patients.PatientsRepository;
+import jakarta.validation.Valid;
+import med.voll.api.model.patients.*;
 import med.voll.api.model.patients.entity.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -29,7 +27,7 @@ public class PatientController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity create(@RequestBody PatientsData data, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity create(@RequestBody @Valid PatientsData data, UriComponentsBuilder uriBuilder) {
         var patient = new Patient(data);
         repository.save(patient);
         var uri = uriBuilder.path("/patients/{id}").buildAndExpand(patient.getId()).toUri();
@@ -40,6 +38,22 @@ public class PatientController {
     public ResponseEntity getOne(@PathVariable("id") Long id) {
         var patient = repository.getReferenceById(id);
         return ResponseEntity.ok(new PatientsDetailsData(patient));
+    }
+
+    @PutMapping
+    @Transactional
+    public ResponseEntity update(@RequestBody @Valid PatientUpdateData data) {
+        var patient = repository.getReferenceById(data.id());
+        patient.updateData(data);
+        return ResponseEntity.ok(new PatientsDetailsData(patient));
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity delete(@PathVariable("id") Long id) {
+        var patient = repository.getReferenceById(id);
+        patient.inactive();
+        return ResponseEntity.noContent().build();
     }
 
 }

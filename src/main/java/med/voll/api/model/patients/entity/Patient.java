@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import med.voll.api.model.address.entity.Address;
+import med.voll.api.model.patients.PatientUpdateData;
 import med.voll.api.model.patients.PatientsData;
 import med.voll.api.model.patients.Sex;
 
@@ -45,5 +46,24 @@ public class Patient {
         this.birthdate = patient.birthdate();
         this.active = true;
         this.address = new Address(patient.address());
+    }
+
+    public void updateData(PatientUpdateData patient) {
+        if (patient.name() != null) {
+            this.name = patient.name();
+        }
+        if (patient.email() != null) {
+            this.email = patient.email();
+        }
+        if (patient.telephone() != null) {
+            this.telephone = patient.telephone();
+        }
+        if (patient.address() != null) {
+            this.address.updateData(patient.address());
+        }
+    }
+
+    public void inactive() {
+        this.active = false;
     }
 }
