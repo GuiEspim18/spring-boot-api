@@ -5,6 +5,7 @@ CREATE TABLE patients (
     birthdate DATE not null,
     cpf varchar(11) not null,
     sex varchar(100) not null,
+    active tinyint not null,
     telephone varchar(20) not null,
     street varchar(100) not null,
     neighborhood varchar(100) not null,

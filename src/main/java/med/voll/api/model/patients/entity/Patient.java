@@ -26,6 +26,8 @@ public class Patient {
     private String name;
     private String email;
     private String cpf;
+
+    @Enumerated(EnumType.STRING)
     private Sex sex;
     private String telephone;
     private Date birthdate;
