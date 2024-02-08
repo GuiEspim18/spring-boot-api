@@ -36,4 +36,9 @@ public class PatientController {
         return ResponseEntity.created(uri).body(new PatientsDetailsData(patient));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity getOne(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(id);
+    }
+
 }
