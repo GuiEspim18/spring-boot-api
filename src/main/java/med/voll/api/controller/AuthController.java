@@ -2,6 +2,7 @@ package med.voll.api.controller;
 
 import med.voll.api.domain.user.AuthData;
 import med.voll.api.domain.user.entity.User;
+import med.voll.api.infra.security.JTWData;
 import med.voll.api.infra.security.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,9 +25,10 @@ public class AuthController {
 
     @PostMapping
     public ResponseEntity login(@RequestBody AuthData data) {
-        var token = new UsernamePasswordAuthenticationToken(data.login(), data.password());
-        var auth = manager.authenticate(token);
-        return ResponseEntity.ok(tokenService.generate((User) auth.getPrincipal()));
+        var authToken = new UsernamePasswordAuthenticationToken(data.login(), data.password());
+        var auth = manager.authenticate(authToken);
+        var jwtToken = tokenService.generate((User) auth.getPrincipal());
+        return ResponseEntity.ok(new JTWData(jwtToken));
     }
 
 }
