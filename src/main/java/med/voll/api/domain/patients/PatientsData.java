@@ -8,9 +8,6 @@ import med.voll.api.domain.address.AddressData;
 import java.util.Date;
 
 public record PatientsData(
-        @NotNull
-        Long id,
-
         @NotBlank
         String name,
 
@@ -27,7 +24,7 @@ public record PatientsData(
         @NotNull
         Sex sex,
 
-        @NotBlank
+        @NotNull
         Date birthdate,
 
         @NotNull

@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 
 public record AppointmentDetailsData(
         Long id,
-        Long doctorId,
-        Long patientId,
+        Long doctor_id,
+        Long patient_id,
         LocalDateTime appointment_date
 ) {
 }
