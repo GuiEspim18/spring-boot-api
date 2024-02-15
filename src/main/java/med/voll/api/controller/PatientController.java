@@ -27,7 +27,7 @@ public class PatientController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity create(@RequestBody @Valid PatientsData data, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<?> create(@RequestBody @Valid PatientsData data, UriComponentsBuilder uriBuilder) {
         var patient = new Patient(data);
         repository.save(patient);
         var uri = uriBuilder.path("/patients/{id}").buildAndExpand(patient.getId()).toUri();
@@ -35,14 +35,14 @@ public class PatientController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getOne(@PathVariable("id") Long id) {
+    public ResponseEntity<?> getOne(@PathVariable("id") Long id) {
         var patient = repository.getReferenceById(id);
         return ResponseEntity.ok(new PatientsDetailsData(patient));
     }
 
     @PutMapping
     @Transactional
-    public ResponseEntity update(@RequestBody @Valid PatientUpdateData data) {
+    public ResponseEntity<?> update(@RequestBody @Valid PatientUpdateData data) {
         var patient = repository.getReferenceById(data.id());
         patient.updateData(data);
         return ResponseEntity.ok(new PatientsDetailsData(patient));
@@ -50,7 +50,7 @@ public class PatientController {
 
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity delete(@PathVariable("id") Long id) {
+    public ResponseEntity<?> delete(@PathVariable("id") Long id) {
         var patient = repository.getReferenceById(id);
         patient.inactive();
         return ResponseEntity.noContent().build();
