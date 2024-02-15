@@ -13,6 +13,6 @@ public record AppointmentData(
 
         @NotNull
         @Future
-        LocalDateTime date
+        LocalDateTime appointment_date
 ) {
 }

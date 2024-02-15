@@ -6,6 +6,6 @@ public record AppointmentDetailsData(
         Long id,
         Long doctorId,
         Long patientId,
-        LocalDateTime date
+        LocalDateTime appointment_date
 ) {
 }
